@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discúlpame ly</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 1.8rem;
+            padding: 12px 24px;
+            margin: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            width: 200px;
+        }
+        #btn-si {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #btn-si:hover {
+            background-color: #45a049;
+        }
+        #btn-no {
+            background-color: #f44336;
+            color: white;
+        }
+        #btn-no:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Extraño hablar contigo, extraño lo que teníamos. Te quiero de aquí a la luna, te pido perdón y aunque no me lo concedas, lo intentaré una y otra vez hasta que accedas. ¿Me perdonarías?</h1>
+
+    <button id="btn-si">Sí</button>
+    <button id="btn-no">No</button>
+
+    <script>
+        let noButton = document.getElementById('btn-no');
+        let noClickCount = 0;
+
+        document.getElementById('btn-si').addEventListener('click', function() {
+            window.location.href = 'pagina_si.html';
+        });
+
+         noButton.addEventListener('click', function() {
+            noClickCount++;
+            noButton.style.transform = `scale(${1 - noClickCount * 0.1})`;
+            noButton.style.left = `${Math.random() * (window.innerWidth - noButton.offsetWidth)}px`;
+            noButton.style.top = `${Math.random() * (window.innerHeight - noButton.offsetHeight)}px`;
+            
+            if (noClickCount >= 3) {
+                window.location.href = 'pagina_no.html';
+            }
+        });
+    </script>
+
+</body>
+</html>
